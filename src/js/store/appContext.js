@@ -19,8 +19,6 @@ const injectContext = (PassedComponent) => {
         );
 
         useEffect(() => {
-            //
-            // Llamar a la acción getContacts cuando el componente se monte
             state.actions.getContacts();
         }, []);
 

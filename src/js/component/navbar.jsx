@@ -8,7 +8,7 @@ export const Navbar = () => {
                 <div className="d-flex justify-content-end w-100">
                     <Link to="/add">
                         <button className="btn btn-success m-2">
-                            Add new contact
+                            Agregar nuevo contacto
                         </button>
                     </Link>
                 </div>

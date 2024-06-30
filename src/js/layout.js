@@ -6,8 +6,8 @@ import { AddContact } from "./views/AddContact";
 import { ContactList } from "./views/ContactList";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
 import { Footer } from "./component/Footer";
+import ConditionalNavbar from "./component/ConditionalNavbar";
 
 const Layout = () => {
     const basename = process.env.BASENAME || "";
@@ -16,7 +16,7 @@ const Layout = () => {
         <div>
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
-                    <Navbar />
+                    <ConditionalNavbar />
                     <Routes>
                         <Route path="/" element={<ContactList />} />
                         <Route path="/add" element={<AddContact />} />
