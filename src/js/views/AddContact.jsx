@@ -40,7 +40,7 @@ export const AddContact = () => {
 
     return (
         <div className="container">
-            <h1>{contactToEdit ? "Edit Contact" : "Add Contact"}</h1>
+            <h1>{contactToEdit ? "Edit Contact" : "Add a new contact"}</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Name</label>
@@ -51,6 +51,7 @@ export const AddContact = () => {
                         value={contact.name}
                         onChange={handleChange}
                         required
+                        placeholder="Full Name"
                     />
                 </div>
                 <div className="form-group">
@@ -62,6 +63,7 @@ export const AddContact = () => {
                         value={contact.email}
                         onChange={handleChange}
                         required
+                        placeholder="Enter email"
                     />
                 </div>
                 <div className="form-group">
@@ -73,6 +75,7 @@ export const AddContact = () => {
                         value={contact.phone}
                         onChange={handleChange}
                         required
+                        placeholder="Enter phone"
                     />
                 </div>
                 <div className="form-group">
@@ -84,6 +87,7 @@ export const AddContact = () => {
                         value={contact.address}
                         onChange={handleChange}
                         required
+                        placeholder="Address"
                     />
                 </div>
                 <button type="submit" className="btn btn-primary col-12 mt-3">
