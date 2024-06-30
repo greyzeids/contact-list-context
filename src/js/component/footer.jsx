@@ -1,10 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 
-export const Footer = () => (
-	<footer className="footer mt-auto py-3 text-center">
-		<p>
-			Made with <i className="fa fa-heart text-danger" /> by{" "}
-			<a href="http://www.4geeksacademy.com">4Geeks Academy</a>
-		</p>
-	</footer>
-);
+export const Footer = () => {
+    return (
+        <footer className="footer mt-5">
+            <div className="container text-center text-white">
+                Made by{" "}
+                <a href="https://github.com/greyzeids" target="_blank" rel="">
+                    Miquel Carnot
+                </a>
+            </div>
+        </footer>
+    );
+};
+
+export default Footer;

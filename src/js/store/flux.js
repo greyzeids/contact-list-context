@@ -1,52 +1,86 @@
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getActions, setStore }) => {
+    const API_URL =
+        "https://playground.4geeks.com/contact/agendas/agenda_miquel/";
+
     return {
         store: {
-            demo: [
-                {
-                    title: "FIRST",
-                    background: "white",
-                    initial: "white",
-                },
-                {
-                    title: "SECOND",
-                    background: "white",
-                    initial: "white",
-                },
-                {
-                    title: "FIRST",
-                    background: "white",
-                    initial: "white",
-                },
-                {
-                    title: "SECOND",
-                    background: "white",
-                    initial: "white",
-                },
-            ],
+            contacts: [],
         },
         actions: {
-            // Use getActions to call a function within a fuction
-            exampleFunction: () => {
-                getActions().changeColor(0, "green");
+            getContacts: async () => {
+                try {
+                    const response = await fetch(API_URL);
+                    if (response.status === 404) {
+                        await getActions().createAgenda();
+                    }
+                    if (!response.ok) {
+                        throw new Error(`API Error: ${response.statusText}`);
+                    }
+                    const data = await response.json();
+                    setStore({ contacts: data.contacts });
+                } catch (error) {
+                    console.error("Error fetching contacts:", error);
+                }
             },
-            loadSomeData: () => {
-                /**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+
+            createAgenda: async () => {
+                try {
+                    await fetch(API_URL, {
+                        method: "POST",
+                    });
+                } catch (error) {
+                    console.error("Error creating agenda:", error);
+                }
             },
-            changeColor: (index, color) => {
-                //get the store
-                const store = getStore();
 
-                //we have to loop the entire demo array to look for the respective index
-                //and change its color
-                const demo = store.demo.map((elm, i) => {
-                    if (i === index) elm.background = color;
-                    return elm;
-                });
+            addContact: async (contact) => {
+                try {
+                    const response = await fetch(`${API_URL}contacts/`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(contact),
+                    });
+                    if (!response.ok) {
+                        throw new Error(`API Error: ${response.statusText}`);
+                    }
+                    getActions().getContacts();
+                } catch (error) {
+                    console.error("Error adding contact:", error);
+                }
+            },
 
-                //reset the global store
-                setStore({ demo: demo });
+            updateContact: async (id, updatedContact) => {
+                try {
+                    const response = await fetch(`${API_URL}contacts/${id}`, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(updatedContact),
+                    });
+                    if (!response.ok) {
+                        throw new Error(`API Error: ${response.statusText}`);
+                    }
+                    getActions().getContacts();
+                } catch (error) {
+                    console.error("Error updating contact:", error);
+                }
+            },
+
+            deleteContact: async (id) => {
+                try {
+                    const response = await fetch(`${API_URL}contacts/${id}`, {
+                        method: "DELETE",
+                    });
+                    if (!response.ok) {
+                        throw new Error(`API Error: ${response.statusText}`);
+                    }
+                    getActions().getContacts();
+                } catch (error) {
+                    console.error("Error deleting contact:", error);
+                }
             },
         },
     };
