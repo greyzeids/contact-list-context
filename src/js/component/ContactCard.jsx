@@ -1,10 +1,34 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Modal } from "./Modal";
-import User from "../../img/user.png";
+import "../../styles/form.css";
+import img1 from "../../img/1.png";
+import img2 from "../../img/2.png";
+import img3 from "../../img/3.png";
+import img4 from "../../img/4.png";
+import img5 from "../../img/5.png";
+import img6 from "../../img/6.png";
+import img7 from "../../img/7.png";
+import img8 from "../../img/8.png";
+
+const imagesArray = [img1, img2, img3, img4, img5, img6, img7, img8];
+
+const getRandomColor = () => {
+    const colors = ["#e81cff", "#40c9ff"];
+    return colors[Math.floor(Math.random() * colors.length)];
+};
 
 const ContactCard = ({ contact, onDelete, onUpdate }) => {
     const [showModal, setShowModal] = useState(false);
+    const randomImage =
+        imagesArray[Math.floor(Math.random() * imagesArray.length)];
+    const gradientAngle = Math.floor(Math.random() * 360);
+    const color1 = getRandomColor();
+    const color2 = getRandomColor();
+
+    const gradientStyle = {
+        backgroundImage: `linear-gradient(${gradientAngle}deg, transparent 35%, ${color1}, ${color2})`,
+    };
 
     const handleDeleteClick = () => {
         setShowModal(true);
@@ -24,20 +48,21 @@ const ContactCard = ({ contact, onDelete, onUpdate }) => {
     };
 
     return (
-        <li className="list-group-item">
+        <li className="list-group-item custom-form-container mb-4">
             <div className="row w-100">
                 <div className="col-12 col-sm-6 col-md-3 px-0">
                     <img
-                        src={User}
+                        src={randomImage}
                         alt="User"
                         className="rounded-circle mx-auto d-block img-fluid"
                         width="100"
+                        style={gradientStyle}
                     />
                 </div>
                 <div className="col-12 col-sm-6 col-md-6 d-flex flex-column justify-content-center">
                     <strong
                         className="name lead"
-                        style={{ color: "black", fontWeight: "bold" }}
+                        style={{ fontWeight: "bold" }}
                     >
                         {contact.name}
                     </strong>
@@ -73,8 +98,8 @@ const ContactCard = ({ contact, onDelete, onUpdate }) => {
             </div>
             <Modal
                 show={showModal}
-                title="Confirm Delete Contact"
-                message={`Are you sure do you want to delete ${contact.name}?`}
+                title="¿Confirmar eliminación?"
+                message={`¿Estás seguro de eliminar a ${contact.name}?`}
                 onConfirm={handleConfirmDelete}
                 onCancel={handleCancelDelete}
             />

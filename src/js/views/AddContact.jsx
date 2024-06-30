@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../../styles/form.css";
 
 export const AddContact = () => {
     const { store, actions } = useContext(Context);
@@ -39,13 +40,13 @@ export const AddContact = () => {
     };
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-5 mb-4">
             <h1>
                 {contactToEdit
                     ? "Editar un contacto"
                     : "Agregar nuevo contacto"}
             </h1>
-            <form onSubmit={handleSubmit}>
+            <form className="custom-form-container" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Name</label>
                     <input
@@ -94,11 +95,11 @@ export const AddContact = () => {
                         placeholder="Ingresa tu dirección"
                     />
                 </div>
-                <button type="submit" className="btn btn-primary col-12 mt-3">
+                <button type="submit" className="btn col-12 mt-3">
                     {contactToEdit ? "Update Contact" : "Agregar contacto"}
                 </button>
                 <br />
-                <Link className="mt-3 w-100 text-center" to="/">
+                <Link className="w-100 text-center" to="/">
                     o vuelve a tus contactos
                 </Link>
             </form>
