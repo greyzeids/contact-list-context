@@ -40,7 +40,11 @@ export const AddContact = () => {
 
     return (
         <div className="container mt-5">
-            <h1>{contactToEdit ? "Edit Contact" : "Add a new contact"}</h1>
+            <h1>
+                {contactToEdit
+                    ? "Editar un contacto"
+                    : "Agregar nuevo contacto"}
+            </h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Name</label>
@@ -51,7 +55,7 @@ export const AddContact = () => {
                         value={contact.name}
                         onChange={handleChange}
                         required
-                        placeholder="Full Name"
+                        placeholder="Nombre completo"
                     />
                 </div>
                 <div className="form-group">
@@ -63,7 +67,7 @@ export const AddContact = () => {
                         value={contact.email}
                         onChange={handleChange}
                         required
-                        placeholder="Enter email"
+                        placeholder="Ingresa tu email"
                     />
                 </div>
                 <div className="form-group">
@@ -75,7 +79,7 @@ export const AddContact = () => {
                         value={contact.phone}
                         onChange={handleChange}
                         required
-                        placeholder="Enter phone"
+                        placeholder="Ingresa tu numero de telefono"
                     />
                 </div>
                 <div className="form-group">
@@ -87,15 +91,15 @@ export const AddContact = () => {
                         value={contact.address}
                         onChange={handleChange}
                         required
-                        placeholder="Enter Address"
+                        placeholder="Ingresa tu dirección"
                     />
                 </div>
                 <button type="submit" className="btn btn-primary col-12 mt-3">
-                    {contactToEdit ? "Update Contact" : "Add Contact"}
+                    {contactToEdit ? "Update Contact" : "Agregar contacto"}
                 </button>
                 <br />
                 <Link className="mt-3 w-100 text-center" to="/">
-                    or get back to contacts
+                    o vuelve a tus contactos
                 </Link>
             </form>
         </div>
