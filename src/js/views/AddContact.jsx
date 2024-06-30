@@ -39,7 +39,7 @@ export const AddContact = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container mt-5">
             <h1>{contactToEdit ? "Edit Contact" : "Add a new contact"}</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -69,7 +69,7 @@ export const AddContact = () => {
                 <div className="form-group">
                     <label>Phone</label>
                     <input
-                        type="text"
+                        type="number"
                         name="phone"
                         className="form-control"
                         value={contact.phone}
@@ -87,7 +87,7 @@ export const AddContact = () => {
                         value={contact.address}
                         onChange={handleChange}
                         required
-                        placeholder="Address"
+                        placeholder="Enter Address"
                     />
                 </div>
                 <button type="submit" className="btn btn-primary col-12 mt-3">

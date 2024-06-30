@@ -29,7 +29,7 @@ const ContactCard = ({ contact, onDelete, onUpdate }) => {
                 <div className="col-12 col-sm-6 col-md-3 px-0">
                     <img
                         src={User}
-                        alt="Mike Anamendolla"
+                        alt="User"
                         className="rounded-circle mx-auto d-block img-fluid"
                         width="100"
                     />

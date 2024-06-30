@@ -12,7 +12,7 @@ export const ContactList = () => {
     };
 
     const handleUpdateContact = (contact) => {
-        navigate("/add-contact", { state: { contact } });
+        navigate("/add", { state: { contact } });
     };
 
     return (
