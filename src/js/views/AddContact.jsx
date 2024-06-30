@@ -52,7 +52,7 @@ export const AddContact = () => {
                     <input
                         type="text"
                         name="name"
-                        className="form-control"
+                        className="form-control no-border-focus"
                         value={contact.name}
                         onChange={handleChange}
                         required
@@ -64,7 +64,7 @@ export const AddContact = () => {
                     <input
                         type="email"
                         name="email"
-                        className="form-control"
+                        className="form-control no-border-focus"
                         value={contact.email}
                         onChange={handleChange}
                         required
@@ -76,7 +76,7 @@ export const AddContact = () => {
                     <input
                         type="number"
                         name="phone"
-                        className="form-control"
+                        className="form-control no-border-focus"
                         value={contact.phone}
                         onChange={handleChange}
                         required
@@ -88,7 +88,7 @@ export const AddContact = () => {
                     <input
                         type="text"
                         name="address"
-                        className="form-control"
+                        className="form-control no-border-focus"
                         value={contact.address}
                         onChange={handleChange}
                         required
@@ -99,7 +99,7 @@ export const AddContact = () => {
                     {contactToEdit ? "Update Contact" : "Agregar contacto"}
                 </button>
                 <br />
-                <Link className="w-100 text-center" to="/">
+                <Link className="w-100 text-center anchor1" to="/">
                     o vuelve a tus contactos
                 </Link>
             </form>

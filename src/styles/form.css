@@ -84,11 +84,6 @@ h1 {
     font-size: 22px;
 }
 
-a {
-    color: rgb(0, 255, 187);
-    text-decoration: none;
-}
-
 .btn {
     background-color: rgb(40, 50, 47);
     color: #dc90f1;
@@ -120,4 +115,9 @@ a {
 
 .text-muted {
     color: white !important;
+}
+
+.no-border-focus:focus {
+    outline: none !important;
+    box-shadow: none !important;
 }

@@ -23,7 +23,7 @@ export const Modal = ({ show, title, message, onConfirm, onCancel }) => {
                     <div className="modal-footer">
                         <button
                             type="button"
-                            className="btn btn-primary"
+                            className="btn btn-secondary"
                             onClick={onConfirm}
                         >
                             Si

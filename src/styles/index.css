@@ -5,3 +5,21 @@ body {
 .bg-light {
     background: #212121 !important;
 }
+
+:root {
+    --bs-body-bg: rgba(0, 0, 0, 0.7);
+    --bs-border-color: inherit;
+}
+
+.btn:hover {
+    color: black;
+}
+
+.anchor1 {
+    text-decoration: underline;
+}
+
+a {
+    color: rgb(0, 255, 187);
+    text-decoration: none;
+}

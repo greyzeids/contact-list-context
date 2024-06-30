@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Modal } from "./Modal";
 import "../../styles/form.css";
@@ -20,15 +20,43 @@ const getRandomColor = () => {
 
 const ContactCard = ({ contact, onDelete, onUpdate }) => {
     const [showModal, setShowModal] = useState(false);
-    const randomImage =
-        imagesArray[Math.floor(Math.random() * imagesArray.length)];
-    const gradientAngle = Math.floor(Math.random() * 360);
-    const color1 = getRandomColor();
-    const color2 = getRandomColor();
 
-    const gradientStyle = {
-        backgroundImage: `linear-gradient(${gradientAngle}deg, transparent 35%, ${color1}, ${color2})`,
+    const initializeState = () => {
+        const savedImage = localStorage.getItem(`contactImage-${contact.id}`);
+        const savedGradient = localStorage.getItem(
+            `contactGradient-${contact.id}`
+        );
+
+        if (savedImage && savedGradient) {
+            return {
+                randomImage: savedImage,
+                gradientStyle: JSON.parse(savedGradient),
+            };
+        } else {
+            const newRandomImage =
+                imagesArray[Math.floor(Math.random() * imagesArray.length)];
+            const gradientAngle = Math.floor(Math.random() * 360);
+            const color1 = getRandomColor();
+            const color2 = getRandomColor();
+
+            const newGradientStyle = {
+                backgroundImage: `linear-gradient(${gradientAngle}deg, transparent 35%, ${color1}, ${color2})`,
+            };
+
+            localStorage.setItem(`contactImage-${contact.id}`, newRandomImage);
+            localStorage.setItem(
+                `contactGradient-${contact.id}`,
+                JSON.stringify(newGradientStyle)
+            );
+
+            return {
+                randomImage: newRandomImage,
+                gradientStyle: newGradientStyle,
+            };
+        }
     };
+
+    const [state, setState] = useState(initializeState);
 
     const handleDeleteClick = () => {
         setShowModal(true);
@@ -52,11 +80,11 @@ const ContactCard = ({ contact, onDelete, onUpdate }) => {
             <div className="row w-100">
                 <div className="col-12 col-sm-6 col-md-3 px-0">
                     <img
-                        src={randomImage}
+                        src={state.randomImage}
                         alt="User"
                         className="rounded-circle mx-auto d-block img-fluid"
                         width="100"
-                        style={gradientStyle}
+                        style={state.gradientStyle}
                     />
                 </div>
                 <div className="col-12 col-sm-6 col-md-6 d-flex flex-column justify-content-center">
@@ -98,8 +126,8 @@ const ContactCard = ({ contact, onDelete, onUpdate }) => {
             </div>
             <Modal
                 show={showModal}
-                title="¿Confirmar eliminación?"
-                message={`¿Estás seguro de eliminar a ${contact.name}?`}
+                title="¿Confirmas eliminar el contacto?"
+                message={`¿Estás seguro de que quieres eliminar el contacto ${contact.name}?`}
                 onConfirm={handleConfirmDelete}
                 onCancel={handleCancelDelete}
             />
