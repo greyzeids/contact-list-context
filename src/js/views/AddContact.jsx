@@ -48,7 +48,7 @@ export const AddContact = () => {
             </h1>
             <form className="custom-form-container" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>Name</label>
+                    <label>Nombre</label>
                     <input
                         type="text"
                         name="name"
@@ -60,7 +60,7 @@ export const AddContact = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Email</label>
+                    <label>E-mail</label>
                     <input
                         type="email"
                         name="email"
@@ -72,7 +72,7 @@ export const AddContact = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Phone</label>
+                    <label>Telefono</label>
                     <input
                         type="number"
                         name="phone"
@@ -84,7 +84,7 @@ export const AddContact = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Address</label>
+                    <label>Dirección</label>
                     <input
                         type="text"
                         name="address"

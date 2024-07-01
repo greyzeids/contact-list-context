@@ -7,7 +7,7 @@ body {
 }
 
 :root {
-    --bs-body-bg: rgba(0, 0, 0, 0.7);
+    --bs-body-bg: rgba(0, 0, 0, 0.9);
     --bs-border-color: inherit;
 }
 
