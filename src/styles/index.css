@@ -23,3 +23,6 @@ a {
     color: rgb(0, 255, 187);
     text-decoration: none;
 }
+.btn-success {
+    --bs-btn-border-color: inherit;
+}
