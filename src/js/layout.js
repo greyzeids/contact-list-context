@@ -6,7 +6,7 @@ import { AddContact } from "./views/AddContact";
 import { ContactList } from "./views/ContactList";
 import injectContext from "./store/appContext";
 
-import { Footer } from "./component/Footer.jsx";
+import { Footer } from "./component/footer";
 import ConditionalNavbar from "./component/ConditionalNavbar";
 
 const Layout = () => {
