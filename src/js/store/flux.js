@@ -1,6 +1,5 @@
 const getState = ({ getActions, setStore }) => {
-    const API_URL =
-        "https://playground.4geeks.com/contact/agendas/agenda_miquel/";
+    const API_URL = `https://playground.4geeks.com/contact/agendas/agenda_miquel/`;
 
     return {
         store: {

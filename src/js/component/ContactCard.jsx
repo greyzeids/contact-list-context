@@ -95,7 +95,7 @@ const ContactCard = ({ contact, onDelete, onUpdate }) => {
                         {contact.name}
                     </strong>
                     <div>
-                        <i className="fas fa-map-marker-alt me-3" />
+                        <i className="fas fa-map-marker-alt me-3 " />
                         <span className="text-muted">{contact.address}</span>
                     </div>
                     <div>
@@ -111,7 +111,7 @@ const ContactCard = ({ contact, onDelete, onUpdate }) => {
                         </span>
                     </div>
                 </div>
-                <div className="col-12 col-sm-12 col-md-3 text-right d-flex align-items-center justify-content-end">
+                <div className="col-12 col-sm-12 col-md-3 text-right d-flex align-items-center justify-content-end mt-3">
                     <i
                         className="fas fa-pencil-alt mr-3"
                         style={{ cursor: "pointer", fontSize: "1.5rem" }}

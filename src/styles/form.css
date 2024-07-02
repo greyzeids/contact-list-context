@@ -12,7 +12,7 @@
     gap: 20px;
     box-sizing: border-box;
     border-radius: 16px;
-    margin: 0 auto; /* Centrar el formulario horizontalmente */
+    margin: 0 auto;
 }
 
 .custom-form-container button:active {
@@ -71,11 +71,6 @@
     margin-top: 8px;
     cursor: pointer;
     border-radius: 6px;
-}
-
-.custom-form-container .form-submit-btn:hover {
-    background-color: #fff;
-    border-color: #fff;
 }
 
 h1 {
